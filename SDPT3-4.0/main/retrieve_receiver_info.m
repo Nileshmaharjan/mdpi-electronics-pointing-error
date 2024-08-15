@@ -1,0 +1,40 @@
+function [al, rl, xkl, wl] = retrieve_receiver_info()
+% % Parameters
+
+N = 1e5; % No of samples N
+Dt = 1e-5; % Sampling time
+
+x1 = 0.5; % Intial position
+R = 1e-6; % Particle radius
+T = 298.15; % Temperature in Kelivin
+eta = 1.8444e-5; % (Pascal per second pa/s);  %viscocity of air 
+k = 1e-6; % (N/m) % k (Trap stiffness)
+
+kB = 1.38e-23; % Boltzmann constant [J/K]
+gamma = 6*pi*R*eta; % friction coefficient
+D = kB*T/gamma; % diffusion coefficient
+
+% Calculaitng al
+al = (1 - ((k*Dt)/gamma) ); % Used in LMI problem
+rl = sqrt(2*kB*T*gamma); % Used in LMI problem
+
+% 
+% Initialization
+xl = zeros(1,N);
+xl(1) = x1;
+wl =  randn(1, N);
+yl = zeros(1, N);
+
+% Simulation
+for i = 2:1:N-1
+    % Deterministic step
+    xl(i) = xl(i-1) - k * Dt/gamma*xl(i-1);
+
+%     % Diffusive step
+     xl(i) = xl(i) + sqrt(2 * D * Dt)* wl(i);
+     yl(i) = xl(i); % changing to mm
+end
+
+xkl = yl;
+
+end
