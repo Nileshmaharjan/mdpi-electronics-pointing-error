@@ -1,26 +1,26 @@
 # mdpi-electronics-pointing-error
 
 
-Overview
-This repository contains code and simulations related to the study of pointing error in satellite communication systems. The simulation focuses on open-loop control, where the displacement caused by pointing errors is analyzed.
 
-Directory Structure
-Main Folder: SDPT3-4.0
-Within the main folder, navigate to the main folder where the primary simulation files are located.
+Instructions for Running Simulations
 
-Inside the pe Folder
-To run the simulation and generate the relevant data:
-1. Run the Simulation:
-    * Execute pointing_error.m to start the simulation.
-2. Modify Parameters:
-    * To generate the database or modify the simulation parameters, adjust the following files:
-        * retrieve_transmitter_info.m: Contains the transmitter's parameters.
-        * retrieve_receiver_info.m: Contains the receiver's parameters.
-        * retrieve_other_system_parameters.m: Defines additional system parameters.
-        * retrieve_gain.m: Computes the gain used in the simulation.
+1. Clone the repository: git clone https://github.com/Nileshmaharjan/mdpi-electronics-pointing-error
+2. Navigate to the Main Folder: cd mdpi-electronics-pointing-error
+3. Locate the Simulation Files: The primary simulation files are in the repository's root directory. Key MATLAB scripts include:
+   - pointing_error.m
+   - retrieve_transmitter_info.m
+   - retrieve_receiver_info.m
+   - retrieve_other_system_parameters.m
+   - retrieve_gain.m
+4. Run the Simulation: pointing_error.m
+5. Modify Parameters to Generate Custom Datasets: Adjust various simulation parameters to generate datasets tailored to different conditions. These parameters include transmitter power, receiver sensitivity, environmental factors (like weather conditions), and more. The relevant scripts to modify are:
 
-Note: 
+   - retrieve_transmitter_info.m: Modify transmitter parameters such as I0, sigma, and rp.
+   - retrieve_receiver_info.m: Adjust receiver characteristics including al, rl, and wl.
+   - retrieve_other_system_parameters.m: Define additional system parameters like matrices A, B, C, and R.
+   - retrieve_gain.m: Set the system gain and attenuation factors.
+  
+By changing these parameters, a generated dataset is similar to the one you provided (dataset.csv), under different simulated conditions.
 
-
-The values for I0, sigma, and Attenuation are adjustable and correspond to different weather conditions or times of day (e.g., noon, foggy).
-The script currently simulates an open-loop system where feedback is not used to correct the pointing error.
+- The values for I0, sigma, and Attenuation are adjustable and correspond to different weather conditions or times of day (e.g., noon, foggy).
+- The script simulates an open-loop system where feedback is not used to correct the pointing error.
