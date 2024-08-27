@@ -6,7 +6,7 @@ This repository contains code and simulations related to the study of pointing e
 
 Directory Structure
 Main Folder: SDPT3-4.0
-Within the main folder, navigate to the pe folder where the primary simulation files are located.
+Within the main folder, navigate to the main folder where the primary simulation files are located.
 
 Inside the pe Folder
 To run the simulation and generate the relevant data:
